@@ -78,6 +78,6 @@ while True:
 		mny = int(input("Kaç para çevrilecekse onu giriniz:"))
 
 		result = convert_unit(base, conv, mny, date)
-		print(result+'\n')
+		print(result,'\n')
 	else:
 		print("Lütfen geçerli bir komut giriniz.")
