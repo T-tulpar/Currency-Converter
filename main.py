@@ -7,7 +7,7 @@ def sprint(msc, txt):
 	for i in txt:
 		print(i, end="")
 		sleep(msc / 100)
-	print("\n",end="")
+	print("\n", end="")
 
 
 BASE_URL = "https://currencyscoop.p.rapidapi.com/"
@@ -51,7 +51,7 @@ def make_list(liste, value=None):
 
 
 def get_list(url, hdr, lh, le=None, prms=None):
-	list_data = get(url, headers=hdr, params=prms).json()
+	list_data = get(url, headers=hdr, params=prms,verify=False).json()
 	ls = list_data['response'][lh]
 	list = make_list(ls, le)
 	return list
@@ -70,7 +70,7 @@ while True:
 	cmd=input("Listeyi görmek için = SL\nPara birimi çevirmek için= CC \nKomutunuzu Giriniz:")
 
 	if cmd == 'SL':
-		show_list(get_list(BASE_URL+LIST,HDR,'fiats','currency_name'))
+		show_list(get_list(BASE_URL+LIST, HDR, 'fiats', 'currency_name'))
 	elif cmd == 'CC':
 		base = input("Baz alıncak para birimini giriniz:")
 		conv = input("Çevrilcek para birimini giriniz:")
